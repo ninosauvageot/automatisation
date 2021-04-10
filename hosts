@@ -1,0 +1,10 @@
+[test]
+debian01    ansible_host=192.168.1.47
+
+[serveurs]
+debian02    ansible_host=192.168.1.3
+
+[tests]
+debian03    ansible_host=192.168.1.41
+debian04    ansible_host=192.168.1.37
+
