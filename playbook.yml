@@ -6,7 +6,7 @@
     - name: creation d'un fichier sur test
       file: 
         path: "/root/toutou.txt"
-        # state: present 
+        state: touch
 
 
 - name: playbook creation fichier 
