@@ -1,6 +1,6 @@
 ---
 - name: playbook test
-  hosts: test
+  hosts: all
   remote_user: root
   tasks: 
     - name: creation d'un fichier sur test
