@@ -10,7 +10,7 @@
 
 
 - name: playbook creation fichier 
-  hosts: tests
+  hosts: all
   remote_user: root
   tasks:
     - name: creation d'un dossier
