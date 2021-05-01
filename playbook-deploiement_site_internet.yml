@@ -2,6 +2,10 @@
   hosts: all
   remote_user: root
   tasks:
+
+    - name: desinstallation apache
+      shell: apt-get autoremove *apache* *php* *mysql* --purge -y && rm -rf /var/www/html/*
+      
     - name: installation apache
       apt:
         name: apache2
@@ -11,3 +15,5 @@
       copy:
         src: ./site_securite
         dest: /var/www/html
+
+      
