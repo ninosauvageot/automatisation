@@ -4,8 +4,8 @@
   tasks:
 
     - name: desinstallation apache
-      shell: apt-get autoremove *apache* *php* *mysql* --purge -y && rm -rf /var/www/html/*
-      
+      shell: apt-get autoremove *apache* *php* --purge -y && rm -rf /var/www/html/*
+
     - name: installation apache
       apt:
         name: apache2
