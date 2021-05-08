@@ -7,8 +7,3 @@
         update_cache: yes
         name: chkrootkit
         state: present
-
-    - name: Redemarrage de chkrootkit
-      service:
-        name: chkrootkit
-        state: restarted
