@@ -1,0 +1,14 @@
+- name: playbook chkrootkit
+  hosts: all
+  remote_user: root
+  tasks:
+    - name: installation chkrootkit
+      apt:
+        update_cache: yes
+        name: chkrootkit
+        state: present
+
+    - name: Redemarrage de chkrootkit
+      service:
+        name: chkrootkit
+        state: restarted
