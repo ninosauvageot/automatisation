@@ -22,3 +22,45 @@
         regexp: '^ADVANCED_PORTS_UDP="1024"'
         line: 'ADVANCED_PORTS_UDP="1024,21"'
         backrefs: yes
+
+    - name: configuration des blocks UDP
+      lineinfile:
+        path: /etc/portsentry/portsentry.conf
+        regexp: '^BLOCK_UDP="0"'
+        line: 'BLOCK_UDP="1"'
+        backrefs: yes
+
+    - name: configuration des blocks TCP
+      lineinfile:
+        path: /etc/portsentry/portsentry.conf
+        regexp: '^BLOCK_TCP="0"'
+        line: 'BLOCK_TCP="1"'
+        backrefs: yes
+
+    - name: configuration des modes TCP
+      lineinfile:
+        path: /etc/default/portsentry
+        regexp: '^TCP_MODE="tcp"'
+        line: 'TCP_MODE="atcp"'
+        backrefs: yes
+
+    - name: configuration des modes UDP
+      lineinfile:
+        path: /etc/default/portsentry
+        regexp: '^UDP_MODE="udp"'
+        line: 'UDP_MODE="audp"'
+        backrefs: yes
+
+    - name: Adresses IP whitelistées
+      blockinfile:
+        path: /etc/portsentry/portsentry.ignore.static
+        insertafter: "0.0.0.0"
+        backrefs: yes
+        block: |
+          192.168.1.1
+          192.168.1.100
+
+    - name: restart portsentry
+      service:
+        name: portsentry
+        state: restarted
