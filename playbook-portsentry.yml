@@ -1,0 +1,11 @@
+- name: playbook installation et configuration de portsentry
+  hosts: all
+  remote_user: root
+  tasks:
+
+    - name: installation portsentry
+      apt:
+        state: present
+        name: portsentry
+        update_cache: 'yes'
+        upgrade: 'yes'
