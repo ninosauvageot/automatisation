@@ -8,3 +8,10 @@
         state: present
         name: portsentry
         update_cache: 'yes'
+
+    - name: configuration des ports
+      lineinfile:
+        path: /etc/portsentry/portsentry.conf
+        regexp: '^ADVANCED_PORTS_TCP="1024"'
+        line: 'ADVANCED_PORTS_TCP="1024,21,22,80,443"'
+        backrefs: yes
