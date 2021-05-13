@@ -55,7 +55,6 @@
       blockinfile:
         path: /etc/portsentry/portsentry.ignore.static
         insertafter: "0.0.0.0"
-        backrefs: yes
         block: |
           192.168.1.1
           192.168.1.100
