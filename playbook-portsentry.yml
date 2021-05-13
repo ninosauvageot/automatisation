@@ -8,4 +8,3 @@
         state: present
         name: portsentry
         update_cache: 'yes'
-        upgrade: 'yes'
