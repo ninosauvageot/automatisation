@@ -19,4 +19,14 @@
           port = 22
           logpath = /var/log/auth.log
           maxretry = 5
+
+    - name: restart fail2ban
+      service:
+        name: fail2ban
+        state: restarted
+        enabled: yes
+
+    - name: recuperation etat jails
+      shell: fail2ban-client status
+
 ...
