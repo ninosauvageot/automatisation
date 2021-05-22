@@ -9,6 +9,11 @@
         name: fail2ban
         update_cache: 'yes'
 
+    - name: supression fichier
+      file:
+        path: /etc/fail2ban/jail.d/custom.conf
+        state: absent
+
     - name: creation d'un fichier sur test
       blockinfile:
         path: "/etc/fail2ban/jail.d/defaults-debian.conf"
