@@ -1,0 +1,23 @@
+- name: playbook installation et configuration de fail2ban
+  hosts: all
+  remote_user: root
+  tasks:
+
+    - name: installation fail2ban
+      apt:
+        state: present
+        name: fail2ban
+        update_cache: 'yes'
+
+    - name: creation d'un fichier sur test
+        blockinfile: 
+          path: "/etc/fail2ban/jail.d/defaults-debian.conf"
+          create: yes
+          block: |
+            [sshd]
+            enabled = true
+            port = 22
+            logpath = /var/log/auth.log
+            maxretry = 5
+
+    
