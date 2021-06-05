@@ -5,4 +5,19 @@
     regexp: "^BOOTPROTO="
     line: BOOTPROTO="static"
   when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
+
+- name: parametrage des adresses ip
+  blockinfile:
+    path: /etc/sysconfig/network-scripts/ifcfg-ens33
+    insertafter: EOF
+    block: |
+      IPADDR={{ network.ip }}
+      NETMASK={{ network.mask }}
+      GATEWAY={{ network.gateway }}
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
+
+- name: redemarage service réseau
+  systemd:
+    name: network
+    state: restarted
 ...
