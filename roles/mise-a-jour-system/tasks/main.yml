@@ -3,4 +3,11 @@
   apt:
     update_cache: 'yes'
     upgrade: 'yes'
+  when: ansible_distribution == "Debian"
+
+- name: mise à jour systeme debian 10
+  yum:
+    update_cache: 'yes'
+    upgrade: 'yes'
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
 ...
