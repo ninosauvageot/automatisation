@@ -1,0 +1,5 @@
+- name: playbook chkrootkit
+  hosts: all
+  remote_user: root
+  roles:
+    - fix_ip_address

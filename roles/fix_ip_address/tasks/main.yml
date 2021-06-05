@@ -1,0 +1,7 @@
+---
+- name: mofification dhcp en static
+  lineinfile:
+    path: /etc/sysconfig/network-script/ifcfg-ens33
+    regexp: "^BOOTPROTO="
+    line: BOOTPROTO="static"
+...
