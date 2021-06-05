@@ -1,9 +1,6 @@
 - name: playbook chkrootkit
   hosts: all
   remote_user: root
-  tasks:
-    - name: installation chkrootkit
-      apt:
-        update_cache: yes
-        name: chkrootkit
-        state: present
+  roles:
+    - chkrootkit_install
+    - chkrootkit_exec

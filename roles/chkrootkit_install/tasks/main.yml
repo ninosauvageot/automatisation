@@ -1,0 +1,7 @@
+---
+- name: installation chkrootkit
+  apt:
+    update_cache: yes
+    name: chkrootkit
+    state: present
+...
