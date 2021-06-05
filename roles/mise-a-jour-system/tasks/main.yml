@@ -5,7 +5,7 @@
     upgrade: 'yes'
   when: ansible_distribution == "Debian"
 
-- name: mise à jour systeme debian 10
+- name: mise à jour systeme centos
   yum:
     state: latest
     update_cache : 'yes'
