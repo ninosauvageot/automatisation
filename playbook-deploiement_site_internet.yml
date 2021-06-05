@@ -1,16 +1,5 @@
 - name: playbook test
   hosts: all
   remote_user: root
-  tasks:
-
-    - name: installation apache
-      apt:
-        name: apache2
-        state: present
-    
-    - name: mise en route du site
-      copy:
-        src: ./site_securite
-        dest: /var/www/html
-
-      
+  roles:
+    - deploiement_site_internet

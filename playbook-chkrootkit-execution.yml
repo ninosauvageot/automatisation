@@ -1,6 +1,5 @@
 - name: playbook chkrootkit
   hosts: all
   remote_user: root
-  tasks:
-    - name: execution chkrootkit
-      shell: chkrootkit > /root/resultat_chkrootkit.txt
+  roles:
+    - chkrootkit_exec

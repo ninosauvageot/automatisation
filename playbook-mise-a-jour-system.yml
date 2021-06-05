@@ -2,9 +2,5 @@
 - name: playbook mise à jour
   hosts: all
   remote_user: root
-  tasks:
-    - name: mise à jour systeme debian 10
-      apt:
-        update_cache: 'yes'
-        upgrade: 'yes'
-...
+  roles:
+    - mise-a-jour-system
