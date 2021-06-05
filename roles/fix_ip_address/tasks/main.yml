@@ -1,7 +1,8 @@
 ---
 - name: mofification dhcp en static
   lineinfile:
-    path: /etc/sysconfig/network-script/ifcfg-ens33
+    path: /etc/sysconfig/network-scripts/ifcfg-ens33
     regexp: "^BOOTPROTO="
     line: BOOTPROTO="static"
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
 ...
