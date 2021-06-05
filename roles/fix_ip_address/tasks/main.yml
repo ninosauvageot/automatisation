@@ -4,6 +4,7 @@
     path: /etc/sysconfig/network-scripts/ifcfg-ens33
     regexp: "^BOOTPROTO="
     line: BOOTPROTO="static"
+    backrefs: yes
   when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
 
 - name: parametrage des adresses ip
