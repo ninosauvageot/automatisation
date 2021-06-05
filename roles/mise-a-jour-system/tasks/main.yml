@@ -7,7 +7,8 @@
 
 - name: mise à jour systeme debian 10
   yum:
-    update_cache: 'yes'
-    upgrade: 'yes'
+    state: latest
+    update_cache : 'yes'
+    update_only : 'yes'
   when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
 ...
