@@ -1,9 +1,17 @@
 ---
-- name: installation portsentry
+- name: installation portsentry (Debian)
   apt:
     state: present
     name: portsentry
     update_cache: 'yes'
+  when: ansible_distribution == "Debian"
+  register: log
+- name: installation portsentry (CentOs)
+  yum:
+    name: portsentry
+    state: latest
+  when: ansible_distribution == "CentOs" or ansible_distribution == "RedHat"
+  register: log
 
 - name: configuration des ports TCP
   lineinfile:
