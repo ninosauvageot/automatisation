@@ -1,4 +1,8 @@
 ---
+- name: afficher ansible distribution
+  debug:
+    msg: "{{ ansible_distribution }} && {{ ansible_distribution_major_version }}"
+
 - name: import task portsentry
   import_tasks: install_portsentry.yml
   when: ansible_distribution == "Debian"
