@@ -1,4 +1,4 @@
-hostname: "debian01"
+hostname: "debian001"
 network: 
   ip: 192.168.1.47
   mask: 255.255.255.0
