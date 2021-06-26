@@ -1,0 +1,9 @@
+---
+- name: nom_centos
+  lineinfile:
+    path: /etc/hostname
+    regexp: "^localhost.localdomain"
+    line: "{{ hostname }}"
+    backrefs: yes
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
+...

@@ -1,3 +1,4 @@
+hostname: "centos_2"
 network: 
   ip: 192.168.1.20
   mask: 255.255.255.0
