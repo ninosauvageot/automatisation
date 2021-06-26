@@ -1,5 +1,0 @@
-- name: playbook nom_centos
-  hosts: all
-  remote_user: root
-  roles:
-    - nom_centos

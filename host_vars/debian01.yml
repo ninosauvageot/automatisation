@@ -1,0 +1,5 @@
+hostname: "debian01"
+network: 
+  ip: 192.168.1.47
+  mask: 255.255.255.0
+  gateway: 192.168.1.1

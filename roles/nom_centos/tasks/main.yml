@@ -1,6 +1,0 @@
----
-- name: nom_centos
-  hostname:
-    name : "{{ hostname }}"
-  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
-...
