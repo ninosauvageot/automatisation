@@ -1,4 +1,5 @@
 ---
 - name: execution chkrootkit
   shell: chkrootkit > /root/resultat_chkrootkit.txt
+  when: ansible_distribution == "debian"
 ...
