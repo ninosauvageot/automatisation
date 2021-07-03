@@ -1,5 +1,5 @@
 ---
-- name: mofification dhcp en static
+- name: mofification dhcp en static CentOs
   lineinfile:
     path: /etc/sysconfig/network-scripts/ifcfg-ens33
     regexp: "^BOOTPROTO="
@@ -7,7 +7,7 @@
     backrefs: yes
   when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
 
-- name: parametrage des adresses ip
+- name: parametrage des adresses ip Centos
   blockinfile:
     path: /etc/sysconfig/network-scripts/ifcfg-ens33
     insertafter: EOF
@@ -17,9 +17,33 @@
       GATEWAY={{ network.gateway }}
   when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
 
-- name: redemarage service réseau
+- name: redemarage service réseau CentOs
   systemd:
     name: network
     state: restarted
   when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
+
+- name: mofification dhcp en static Debian
+  lineinfile:
+    path: /etc/network/interfaces
+    regex: "^iface ens33"
+    line: iface ens33 inet static
+    backrefs: yes
+  when: ansible_distribution == "Debian"
+
+- name: parametrage des adresses ip Debian
+  blockinfile:
+    path: /etc/network/interfaces
+    insertafter: "^iface ens33 inet static"
+    block: |
+          address {{ network.ip }}
+          netmask {{ network.mask }}
+          gateway {{ network.gateway }}
+  when: ansible_distribution == "Debian"
+
+- name: redemarage service réseau Debian
+  systemd:
+    name: network
+    state: restarted
+  when: ansible_distribution == "Debian"
 ...
