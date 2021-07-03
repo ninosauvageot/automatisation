@@ -4,5 +4,5 @@
     update_cache: yes
     name: chkrootkit
     state: present
-  when: ansible_distribution == "debian"
+  when: ansible_distribution == "Debian"
 ...
