@@ -1,10 +1,17 @@
 ---
-- name: installation apache
+- name: installation apache (Debian)
   apt:
     name: apache2
     state: present
+  when: ansible_distribution == "Debian"
 
-- name: effacer html
+- name: installation apache (centos)
+  yum:
+    name: apache2
+    state: present
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
+
+- name: effacer html (CentOs)
   ansible.builtin.file:
     path: /var/www/html
     state: absent
