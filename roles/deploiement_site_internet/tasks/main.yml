@@ -4,8 +4,13 @@
     name: apache2
     state: present
 
+- name: effacer html
+  ansible.builtin.file:
+    path: /var/www/html
+    state: absent
+
 - name: mise en route du site
   copy:
-    src: ./site_securite
-    dest: /var/www/html
+    src: ./html
+    dest: /var/www
 ...
