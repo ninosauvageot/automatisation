@@ -7,7 +7,7 @@
 
 - name: installation apache (centos)
   yum:
-    name: apache2
+    name: httpd
     state: present
   when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
 
