@@ -1,0 +1,11 @@
+---
+- name: installation des outils sur centos
+  yum:
+    name:
+      - nano
+      - wget
+      - curl
+      - git
+    state: present
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
+...

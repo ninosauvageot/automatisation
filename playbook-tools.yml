@@ -1,0 +1,7 @@
+---
+- name: playbook tools
+  hosts: all
+  remote_user: root
+  roles:
+    - tools
+...
