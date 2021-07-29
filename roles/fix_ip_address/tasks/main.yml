@@ -37,14 +37,14 @@
     path: /etc/network/interfaces
     insertafter: "^iface ens33 inet static"
     block: |
-          address {{ network.ip }}
-          netmask {{ network.mask }}
-          gateway {{ network.gateway }}
+            address {{ network.ip }}
+            netmask {{ network.mask }}
+            gateway {{ network.gateway }}
   when: ansible_distribution == "Debian"
 
 - name: redemarage service réseau Debian
   systemd:
-    name: network
+    name: networking
     state: restarted
   when: ansible_distribution == "Debian"
 ...
