@@ -4,5 +4,5 @@
     path: /etc/resolv.conf
     regexp: '^nameserver 192.168.1.1'
     line: 'nameserver 8.8.8.8'
-
+  when: ansible_distribution == "Debian"
 ...
