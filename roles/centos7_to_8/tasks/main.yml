@@ -1,27 +1,37 @@
 ---
-- name: update system
-  yum:
-    name: '*'
-    state: latest
+# - name: update system
+#   yum:
+#     name: '*'
+#     state: latest
 
-- name: Installation epel-release
-  yum:
-    name: epel-release
-    state: latest
+# - name: Installation epel-release
+#   yum:
+#     name: epel-release
+#     state: latest
 
-- name: Installation dnf
-  yum:
-    name: dnf
-    state: latest
+# - name: Installation dnf
+#   yum:
+#     name: dnf
+#     state: latest
 
-- name: Upgrade all packages
-  dnf:
-    name: "*"
-    state: latest
+# - name: Upgrade all packages
+#   dnf:
+#     name: "*"
+#     state: latest
 
 - name: Packages centos 8
   dnf:
-    name: "http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/{centos-linux-repos-8-2.el8.noarch.rpm,centos-linux-release-8.4-1.2105.el8.noarch.rpm,centos-gpg-keys-8-2.el8.noarch.rpm}"
+    name: "http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/centos-linux-repos-8-2.el8.noarch.rpm"
+    state: installed
+
+- name: Packages centos 8
+  dnf:
+    name: "http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/centos-linux-release-8.4-1.2105.el8.noarch.rpm"
+    state: installed
+
+- name: Packages centos 8
+  dnf:
+    name: "http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/centos-gpg-keys-8-2.el8.noarch.rpm"
     state: installed
 
 - name: Upgrade epel-release
