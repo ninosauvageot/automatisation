@@ -1,0 +1,5 @@
+- name: playbook centos7_to_8
+  hosts: all
+  remote_user: root
+  roles:
+    - centos7_to_8
