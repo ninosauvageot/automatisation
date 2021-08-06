@@ -19,20 +19,10 @@
 #     name: "*"
 #     state: latest
 
-- name: Packages centos 8
-  dnf:
-    name: "http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/centos-linux-repos-8-2.el8.noarch.rpm"
-    state: installed
 
-- name: Packages centos 8
-  dnf:
-    name: "http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/centos-linux-release-8.4-1.2105.el8.noarch.rpm"
-    state: installed
+- name: execution commandes 1
+  shell: dnf install http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/{centos-linux-repos-8-2.el8.noarch.rpm,centos-linux-release-8.4-1.2105.el8.noarch.rpm,centos-gpg-keys-8-2.el8.noarch.rpm}
 
-- name: Packages centos 8
-  dnf:
-    name: "http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/centos-gpg-keys-8-2.el8.noarch.rpm"
-    state: installed
 
 - name: Upgrade epel-release
   dnf:
