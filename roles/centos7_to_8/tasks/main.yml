@@ -33,11 +33,14 @@
   dnf:
     autoremove: yes
 
-- name: execution commandes
-  shell:
-    - "rpm -e `rpm -q kernel`"
-    - "rpm -e --nodeps sysvinit-tools"
-    - "dnf -y --releasever=8 --allowerasing --setopt=deltarpm=false distro-sync"
+- name: execution commandes 1
+  shell: "rpm -e `rpm -q kernel`"
+
+- name: execution commandes 2
+  shell: "rpm -e --nodeps sysvinit-tools"
+
+- name: execution commandes 3
+  shell: "dnf -y --releasever=8 --allowerasing --setopt=deltarpm=false distro-sync"
 
 - name: dnf
   dnf:
@@ -45,5 +48,4 @@
     state: present
 
 - name: execution commandes fin
-  shell:
-    - dnf -y groupupdate "Core" "Minimal Install"
+  shell: dnf -y groupupdate "Core" "Minimal Install"
