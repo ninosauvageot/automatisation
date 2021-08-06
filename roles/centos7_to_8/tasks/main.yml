@@ -25,9 +25,8 @@
 
 
 - name: Upgrade epel-release
-  dnf:
-    name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
-    state: latest
+  shell: dnf -y upgrade https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+
 
 - name: Autoremove
   dnf:
