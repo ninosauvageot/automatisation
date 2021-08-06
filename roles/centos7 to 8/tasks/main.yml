@@ -1,0 +1,49 @@
+---
+- name: update system
+  yum:
+    name: '*'
+    state: latest
+
+- name: Installation epel-release
+  yum:
+    name: epel-release
+    state: latest
+
+- name: Installation dnf
+  yum:
+    name: dnf
+    state: latest
+
+- name: Upgrade all packages
+  dnf:
+    name: "*"
+    state: latest
+
+- name: Packages centos 8
+  dnf:
+    name: 'http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/{centos-linux-repos-8-2.el8.noarch.rpm,centos-linux-release-8.4-1.2105.el8.noarch.rpm,centos-gpg-keys-8-2.el8.noarch.rpm}'
+    state: present
+
+- name: Upgrade epel-release
+  dnf:
+    name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
+    state: latest
+
+- name: Autoremove
+  dnf:
+    autoremove: yes
+
+- name: execution commandes
+  shell:
+    - "rpm -e `rpm -q kernel`"
+    - "rpm -e --nodeps sysvinit-tools"
+    - "dnf -y --releasever=8 --allowerasing --setopt=deltarpm=false distro-sync"
+
+- name: dnf
+  dnf:
+    name: kernel-core
+    state: present
+
+- name: execution commandes fin
+  shell:
+    - dnf -y groupupdate "Core" "Minimal Install"
