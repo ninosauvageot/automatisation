@@ -20,8 +20,8 @@
 #     state: latest
 
 
-#- name: execution commandes 1
-#  shell: dnf install -y http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/{centos-linux-repos-8-2.el8.noarch.rpm,centos-linux-release-8.4-1.2105.el8.noarch.rpm,centos-gpg-keys-8-2.el8.noarch.rpm}
+- name: execution commandes 1
+  shell: dnf install -y http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/{centos-linux-repos-8-2.el8.noarch.rpm,centos-linux-release-8.4-1.2105.el8.noarch.rpm,centos-gpg-keys-8-2.el8.noarch.rpm}
 
 
 - name: Upgrade epel-release
@@ -32,8 +32,8 @@
   dnf:
     autoremove: yes
 
-- name: execution commandes 1
-  shell: "rpm -e `rpm -q kernel`"
+#- name: execution commandes 1
+#  shell: "rpm -e `rpm -q kernel`"
 
 - name: execution commandes 2
   shell: "rpm -e --nodeps sysvinit-tools"
