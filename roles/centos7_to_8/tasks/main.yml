@@ -20,8 +20,8 @@
 #     state: latest
 
 
-- name: execution commandes 1
-  shell: dnf -y install -y https://mirror.yandex.ru/centos/8/BaseOS/x86_64/os/Packages/centos-release-8.0-0.1905.0.9.el8.x86_64.rpm
+#- name: execution commandes 1
+#  shell: dnf -y install -y https://mirror.yandex.ru/centos/8/BaseOS/x86_64/os/Packages/centos-release-8.0-0.1905.0.9.el8.x86_64.rpm
 
 
 - name: Upgrade epel-release
