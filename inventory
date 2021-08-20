@@ -6,7 +6,3 @@ debian03    ansible_host=192.168.1.41
 debian04    ansible_host=192.168.1.37
 [centos]
 centos_0    ansible_host=192.168.1.48
-centos_1    ansible_host=192.168.1.23
-centos_2    ansible_host=192.168.1.20
-centos_3    ansible_host=192.168.1.94
-centos_4    ansible_host=192.168.1.93

@@ -1,5 +1,0 @@
-hostname: "centos_3"
-network: 
-  ip: 192.168.1.94
-  mask: 255.255.255.0
-  gateway: 192.168.1.1
