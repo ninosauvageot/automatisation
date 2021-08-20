@@ -1,0 +1,5 @@
+hostname: "rockylinux"
+network: 
+  ip: 192.168.56.11
+  mask: 255.255.255.0
+  gateway: 192.168.56.1
