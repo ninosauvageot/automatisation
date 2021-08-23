@@ -5,7 +5,7 @@
     regexp: "^BOOTPROTO="
     line: BOOTPROTO="static"
     backrefs: yes
-  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
 
 - name: parametrage des adresses ip Centos
   blockinfile:
@@ -16,13 +16,13 @@
       NETMASK={{ network.mask }}
       GATEWAY={{ network.gateway }}
       DNS1=8.8.8.8
-  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
 
 - name: redemarage service réseau CentOs
   systemd:
     name: network
     state: restarted
-  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
 
 - name: mofification dhcp en static Debian
   lineinfile:
