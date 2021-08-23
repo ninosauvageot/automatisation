@@ -7,4 +7,4 @@ debian04    ansible_host=192.168.1.37
 [centos]
 centos_0    ansible_host=192.168.1.48
 [rockylinux]
-rockylinux  ansible_host=192.168.56.11
+rockylinux  ansible_host=192.168.1.25
