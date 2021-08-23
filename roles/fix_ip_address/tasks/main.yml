@@ -22,7 +22,13 @@
   systemd:
     name: network
     state: restarted
-  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
+
+- name: redemarage service réseau Rocky
+  systemd:
+    name: NetworkManager
+    state: restarted
+  when: ansible_distribution == "Rocky"
 
 - name: mofification dhcp en static Debian
   lineinfile:
