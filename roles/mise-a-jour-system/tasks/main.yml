@@ -9,6 +9,6 @@
   yum:
     name: '*'
     state: latest
-  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" ansible_distribution == "Rocky"
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
 
 ...
