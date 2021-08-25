@@ -5,7 +5,7 @@
 
 - name: creation d'un fichier sur test
   blockinfile:
-    path: "/etc/init.d/portsentry"
+    path: "/etc/init.d/portsentry.sh"
     create: true
     block: |
       #!/bin/bash
