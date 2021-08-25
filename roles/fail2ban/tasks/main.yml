@@ -1,9 +1,17 @@
 ---
-- name: installation fail2ban
+- name: installation fail2ban (debian)
   apt:
     state: present
     name: fail2ban
     update_cache: 'yes'
+  when: ansible_distribution == "debian"
+
+- name: installation fail2ban (centos)
+  yum:
+    state: present
+    name: fail2ban
+    update_cache: 'yes'
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
 
 - name: supression fichier
   file:
