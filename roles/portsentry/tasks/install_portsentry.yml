@@ -8,8 +8,8 @@
 
 - name: installation portsentry (centos)
   yum:
-    name: portsentry
     state: present
+    name: portsentry
     update_cache: 'yes'
   when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
 
