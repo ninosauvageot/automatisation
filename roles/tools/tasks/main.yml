@@ -9,5 +9,5 @@
       - epel-release
       - glances
     state: present
-  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" ansible_distribution == "Rocky"
 ...

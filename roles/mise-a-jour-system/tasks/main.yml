@@ -10,5 +10,5 @@
     state: latest
     update_cache : 'yes'
     update_only : 'yes'
-  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" ansible_distribution == "Rocky"
 ...

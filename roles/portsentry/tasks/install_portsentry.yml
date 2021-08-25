@@ -4,6 +4,14 @@
     state: present
     name: portsentry
     update_cache: 'yes'
+    when: ansible_distribution == "debian"
+
+- name: installation portsentry (centos)
+  yum:
+    name: portsentry
+    state: present
+    update_cache: 'yes'
+    when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" ansible_distribution == "Rocky"
 
 - name: configuration des ports TCP
   lineinfile:
