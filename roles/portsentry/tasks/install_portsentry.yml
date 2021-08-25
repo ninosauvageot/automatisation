@@ -8,9 +8,8 @@
 
 - name: installation portsentry (centos)
   yum:
-    state: present
     name: portsentry
-    update_cache: 'yes'
+    state: latest
   when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
 
 - name: configuration des ports TCP
