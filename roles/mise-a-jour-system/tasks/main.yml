@@ -5,6 +5,11 @@
     upgrade: 'yes'
   when: ansible_distribution == "Debian"
 
+- name: Upgrade all packages
+  yum:
+    name: '*'
+    state: latest
+
 - name: mise à jour systeme centos
   yum:
     state: latest
