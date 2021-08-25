@@ -3,9 +3,9 @@
   shell: wget http://downloads.sourceforge.net/project/sentrytools/portsentry%201.x/portsentry-1.2/portsentry-1.2.tar.gz
   when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
 
-- name: creation d'un fichier sur test
+- name: creation d'un fichier portsentry
   blockinfile:
-    path: "/etc/init.d/portsentry.sh"
+    path: "./etc/init.d/portsentry.sh"
     create: true
     block: |
       #!/bin/bash
