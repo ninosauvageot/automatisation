@@ -4,7 +4,6 @@
   when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
 
 - name: création fichier portsentry
-  ansible.builtin.file:
     path: ./etc/init.d/portsentry
     state: present
     when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
