@@ -1,0 +1,64 @@
+---
+- name: installation wget portsentry
+  shell: wget http://downloads.sourceforge.net/project/sentrytools/portsentry%201.x/portsentry-1.2/portsentry-1.2.tar.gz
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
+
+- name: création fichier portsentry
+    path: /etc/init.d/portsentry
+    state: touch
+    when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
+
+- name: insertion script portsentry
+  blockinfile:
+    path: /etc/init.d/portsentry
+    block: |
+      #!/bin/bash
+
+      case "$1" in
+      start)
+      echo "Starting Portsentry..."
+      ps ax | grep -iw '/usr/local/psionic/portsentry/portsentry -atcp' | grep -iv 'grep' > /dev/null
+      if [ $? != 0 ]; then
+      /usr/local/psionic/portsentry/portsentry -atcp
+      fi
+      ps ax | grep -iw '/usr/local/psionic/portsentry/portsentry -audp' | grep -iv 'grep' > /dev/null
+      if [ $? != 0 ]; then
+      /usr/local/psionic/portsentry/portsentry -audp
+      fi
+      echo "Portsentry is now up and running!"
+      ;;
+      stop)
+      echo "Shutting down Portsentry..."
+      array=(`ps ax | grep -iw '/usr/local/psionic/portsentry/portsentry' | grep -iv 'grep' \
+      | awk '{print $1}' | cut -f1 -d/ | tr '\n' ' '`)
+      element_count=${#array[@]}
+      index=0
+      while [ "$index" -lt "$element_count" ]
+      do
+      kill -9 ${array[$index]}
+      let "index = $index + 1"
+      done
+      echo "Portsentry stopped!"
+      ;;
+      restart)
+      $0 stop && sleep 3
+      $0 start
+      ;;
+      *)
+      echo "Usage: $0 {start|stop|restart}"
+      exit 1
+      esac
+      exit 0
+    when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
+
+- name: execution commandes
+  shell: chmod 755 /etc/init.d/portsentry | ln -s /etc/init.d/portsentry /etc/rc2.d/S20portsentry | ln -s /etc/init.d/portsentry /etc/rc3.d/S20portsentry | ln -s /etc/init.d/portsentry /etc/rc4.d/S20portsentry | ln -s /etc/init.d/portsentry /etc/rc5.d/S20portsentry | ln -s /etc/init.d/portsentry /etc/rc0.d/K20portsentry | ln -s /etc/init.d/portsentry /etc/rc1.d/K20portsentry | ln -s /etc/init.d/portsentry /etc/rc6.d/K20portsentry | /etc/init.d/portsentry start
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
+
+
+
+
+
+
+
+...

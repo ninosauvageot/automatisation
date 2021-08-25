@@ -1,0 +1,5 @@
+- name: playbook installation et configuration de portsentry_centos
+  hosts: all
+  remote_user: root
+  roles:
+    - portsentry_centos

@@ -6,12 +6,6 @@
     update_cache: 'yes'
   when: ansible_distribution == "debian"
 
-- name: installation portsentry (centos)
-  yum:
-    name: portsentry
-    state: latest
-  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
-
 - name: configuration des ports TCP
   lineinfile:
     path: /etc/portsentry/portsentry.conf
