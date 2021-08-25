@@ -5,7 +5,7 @@
 
 - name: creation d'un fichier portsentry
   blockinfile:
-    path: "./etc/init.d/portsentry.sh"
+    path: "/etc/init.d/portsentry.sh"
     create: true
     block: |
       #!/bin/bash
@@ -45,18 +45,9 @@
       exit 1
       esac
       exit 0
-    when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
-
-
 
 - name: execution commandes
   shell: chmod 755 /etc/init.d/portsentry | ln -s /etc/init.d/portsentry /etc/rc2.d/S20portsentry | ln -s /etc/init.d/portsentry /etc/rc3.d/S20portsentry | ln -s /etc/init.d/portsentry /etc/rc4.d/S20portsentry | ln -s /etc/init.d/portsentry /etc/rc5.d/S20portsentry | ln -s /etc/init.d/portsentry /etc/rc0.d/K20portsentry | ln -s /etc/init.d/portsentry /etc/rc1.d/K20portsentry | ln -s /etc/init.d/portsentry /etc/rc6.d/K20portsentry | /etc/init.d/portsentry start
   when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
-
-
-
-
-
-
 
 ...
