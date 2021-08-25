@@ -5,7 +5,7 @@
 
 - name: création fichier portsentry
     path: /etc/init.d/portsentry
-    state: touch
+    state: present
     when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" or ansible_distribution == "Rocky"
 
 - name: insertion script portsentry
